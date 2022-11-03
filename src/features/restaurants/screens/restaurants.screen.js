@@ -1,10 +1,10 @@
 import React from "react";
 import { Searchbar } from "react-native-paper";
 import {
-  SafeArea,
   SearchContainer,
   RestaurantList,
 } from "./restaurant-screen-styled-components";
+import { SafeArea } from "../../../components/utility/safe-area.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 
