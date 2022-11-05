@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
-import { Searchbar } from "react-native-paper";
+import { Colors } from "react-native-paper";
 import {
-  SearchContainer,
   RestaurantList,
+  LoadingContainer,
+  Loading,
 } from "./restaurant-screen-styled-components";
+import { Search } from "../components/search.component";
 import { SafeArea } from "../../../components/utility/safe-area.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
@@ -13,9 +15,12 @@ export const RestaurantsScreen = () => {
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
   return (
     <SafeArea>
-      <SearchContainer>
-        <Searchbar placeholder="Quench your hunger" />
-      </SearchContainer>
+      {isLoading && (
+        <LoadingContainer>
+          <Loading size={50} animating={true} color={Colors.blue400} />
+        </LoadingContainer>
+      )}
+      <Search />
       <RestaurantList
         data={restaurants}
         keyExtractor={(item) => item.name}
