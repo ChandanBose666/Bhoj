@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { Text } from "react-native";
-
+import { MapScreen } from "../../features/map/screens/map.screen";
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { SafeArea } from "../../components/utility/safe-area.component";
 
@@ -18,11 +18,6 @@ const TAB_ICON = {
 const Settings = () => (
   <SafeArea>
     <Text>Settings</Text>
-  </SafeArea>
-);
-const Map = () => (
-  <SafeArea>
-    <Text>Map</Text>
   </SafeArea>
 );
 
@@ -43,7 +38,11 @@ export const AppNavigator = () => (
         name="Restaurants"
         component={RestaurantsNavigator}
       />
-      <Tab.Screen options={{ headerShown: false }} name="Map" component={Map} />
+      <Tab.Screen
+        options={{ headerShown: false }}
+        name="Map"
+        component={MapScreen}
+      />
       <Tab.Screen
         options={{ headerShown: false }}
         name="Settings"
